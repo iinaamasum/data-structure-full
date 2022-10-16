@@ -48,10 +48,27 @@ void printList(List*& head) {
     List* temp = head;
     while (temp != NULL) {
         cout << temp->val;
-        if (temp->next != NULL) cout << " --> ";
+        if (temp->next != NULL) cout << " -> ";
         temp = temp->next;
     }
     cout << endl;
+}
+
+// finding val and replace with -1 function
+void findAndReplace(List*& head) {
+    if (head == NULL) {
+        cout << "List is empty." << endl;
+        return;
+    }
+
+    // finding val
+    List* temp = head;
+    while (temp != NULL) {
+        if (temp->val % 2 == 0) {
+            temp->val = -1;
+        }
+        temp = temp->next;
+    }
 }
 
 int main() {
@@ -63,7 +80,10 @@ int main() {
         cin >> x;
         insertValAtEnd(head, x);
     }
-
+    cout << "Answer without replace: ";
+    printList(head);
+    cout << "Answer with replace (even to -1): ";
+    findAndReplace(head);
     printList(head);
     return 0;
 }
