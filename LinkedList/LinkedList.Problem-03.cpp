@@ -95,9 +95,11 @@ int main() {
         cin >> x;
         insertValAtLast(head, x);
     }
+    cout << "Before deletion: ";
     printLinkedList(head);
 
     deleteNodes(head, m, n, k);
+    cout << "After deletion(Result): ";
     printLinkedList(head);
 
     return 0;
