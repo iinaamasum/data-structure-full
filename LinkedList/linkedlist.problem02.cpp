@@ -62,7 +62,7 @@ void printLinkedList(LinkedList*& head) {
 }
 
 // reverse linked list with three pointer method (problem is for kth position)
-LinkedList* reverseLinkedList(LinkedList*& head, int k) {
+LinkedList* reverseKNodes(LinkedList*& head, int k) {
     LinkedList* temp = head;
     for (int i = 0; i < k; i++) {
         if (temp == NULL) return head;
@@ -79,7 +79,7 @@ LinkedList* reverseLinkedList(LinkedList*& head, int k) {
     }
 
     // recursive call
-    head->next = reverseLinkedList(curr_node, k);
+    head->next = reverseKNodes(curr_node, k);
     return prev_node;
 }
 
@@ -97,7 +97,7 @@ int main() {
     int k;
     cin >> k;
     cout << "Reversed in k portion: ";
-    head = reverseLinkedList(head, k);
+    head = reverseKNodes(head, k);
     printLinkedList(head);
     return 0;
 }
