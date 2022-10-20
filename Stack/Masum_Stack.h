@@ -34,6 +34,7 @@ class Stack {
             head = top = new_node;
             return;
         }
+        new_node->prev = top;
         top->next = new_node;
         top = top->next;
         size++;
@@ -88,7 +89,7 @@ class Stack {
 
         int mid = size / 2;
         if (size % 2) {
-            cout << "Size is odd. Mid elements are 2 and returning the first mid which is: ";
+            cout << "Mid elements are 2 and returning the first mid which is: ";
             mid++;
         }
         while (mid--) {
